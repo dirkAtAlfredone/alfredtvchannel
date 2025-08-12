@@ -39,7 +39,7 @@ app.get("/user/:id", async (req, res) => {
         });
         const {data: subscriptions} = await axios.get(`${API_URL}/api/v1.0/clients/services?clientId=${req.params.id}`, {headers, httpsAgent});
         const {data: client} = await axios.get(`${API_URL}/api/v1.0/clients/${req.params.id}`, {headers, httpsAgent});
-        const channelSubscriptions = subscriptions.filter(subscription => subscription.id === 312);
+        const channelSubscriptions = subscriptions.filter(subscription => subscription.name === 'ALFRED TV | Canada Channel Line Up');
         if(channelSubscriptions.length !== 0){
             const user = {
                 firstName: client.firstName,
